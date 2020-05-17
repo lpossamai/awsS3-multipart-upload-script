@@ -27,7 +27,7 @@ An example of the output of the script:
     "ETag": "\"e868e0f4719e394144ef36531ee6824c\""
 }</code>
 
-More information about the `split` command for Linux here.
+More information about the `split` command for Linux [here](https://www.linuxtechi.com/split-command-examples-for-linux-unix/).
 
 ### **Variables:**
 
