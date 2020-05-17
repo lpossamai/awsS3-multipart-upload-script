@@ -12,7 +12,7 @@ That way, if you lose connection for a reason, you'll be able to resume the uplo
 	2. Please, take notes of the `upload_id` and `key` values; you'll need them.
 2. Clone this repo
 3. Set permissions: `chmod +x multipart.file-upload-s3.sh`
-4. Edit `multipart.file-upload-s3.sh` with your requirements - See *variables* below for more information.
+4. Edit `multipart.file-upload-s3.sh` with your requirements - See **variables** below for more information.
 	1. Change `bucket`, `profile`, `upload_id`, `path` and `key`.
 5. Create the `logs` directory: `cd awsS3-multipart-upload-script && mkdir logs`
 
@@ -28,9 +28,15 @@ An example of the output of the script:
 }
 </code>
 
-*Variables:*
+
+**Variables:**
+
 `bucket` = Your S3 bucket name.
+
 `profile` = Your AWS profile (i.e. `aws configure --profile tests3`).
+
 `upload_id` = Your upload_id, retrievable when executing `create-multipart-upload`.
+
 `path` = The directory in your HD that contains the splitted files.
+
 `key` = Object key for which the multipart upload has been initiated.
