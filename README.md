@@ -13,8 +13,9 @@ That way, if you lose connection for a reason, you'll be able to resume the uplo
 2. Clone this repo
 3. Set permissions: `chmod +x multipart.file-upload-s3.sh`
 4. Edit `multipart.file-upload-s3.sh` with your requirements - See **variables** below for more information.
-	1. Change `bucket`, `profile`, `upload_id`, `path` and `key`.
+	1. Change `bucket`, `profile`, `upload_id` and `key`.
 5. Create the `logs` directory: `cd awsS3-multipart-upload-script && mkdir logs`
+6. Run: `./multipart.file-upload-s3.sh`
 
 The script will start reading your `path` directory for files, will take the MD5 checksum of them and parse it to the S3 API as the `--content-md5` parameter, and then it will start uploading each file to the specified `bucket`.
 The outputs will be sent to a log file.
@@ -22,14 +23,13 @@ Make sure to save that log file, you'll need the `ETag` output later on.
 
 An example of the output of the script:
 
-<code>
-{
+<code>{
     "ETag": "\"e868e0f4719e394144ef36531ee6824c\""
-}
-</code>
+}</code>
 
+More information about the `split` command for Linux here.
 
-**Variables:**
+### **Variables:**
 
 `bucket` = Your S3 bucket name.
 
@@ -37,6 +37,6 @@ An example of the output of the script:
 
 `upload_id` = Your upload_id, retrievable when executing `create-multipart-upload`.
 
-`path` = The directory in your HD that contains the splitted files.
+`/home/lucas/aws-upload-test/files/x` = The directory in your HD that contains the splitted files.
 
 `key` = Object key for which the multipart upload has been initiated.
