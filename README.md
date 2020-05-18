@@ -16,8 +16,9 @@ That way, if you lose connection for a reason, you'll be able to resume the uplo
 	1. Change `bucket`, `profile`, `upload_id` and `key`.
 5. Create the `logs` directory: `cd awsS3-multipart-upload-script && mkdir logs`
 6. Run: `./multipart.file-upload-s3.sh`
+7. Check [AWS documentation](https://docs.aws.amazon.com/cli/latest/reference/s3api/complete-multipart-upload.html) for next step. You'll have to run the `complete-multipart-upload` command.
 
-The script will start reading your `path` directory for files, will take the MD5 checksum of them and parse it to the S3 API as the `--content-md5` parameter, and then it will start uploading each file to the specified `bucket`.
+The script will start reading your `/home/lucas/aws-upload-test/files/x` directory for files, will take the MD5 checksum of them and parse it to the S3 API as the `--content-md5` parameter, and then it will start uploading each file to the specified `bucket`.
 The outputs will be sent to a log file.
 Make sure to save that log file, you'll need the `ETag` output later on.
 
@@ -25,6 +26,26 @@ An example of the output of the script:
 
 <code>{
     "ETag": "\"e868e0f4719e394144ef36531ee6824c\""
+}</code>
+
+The script will send the output to another file and format it to be compatible with the AWS requirements for the `complete-multipart-upload` command.
+
+AWS `complete-multipart-upload` output example:
+<code>{
+  "Parts": [
+    {
+      "ETag": "e868e0f4719e394144ef36531ee6824c",
+      "PartNumber": 1
+    },
+    {
+      "ETag": "6bb2b12753d66fe86da4998aa33fffb0",
+      "PartNumber": 2
+    },
+    {
+      "ETag": "d0a0112e841abec9c9ec83406f0159c8",
+      "PartNumber": 3
+    }
+  ]
 }</code>
 
 More information about the `split` command for Linux [here](https://www.linuxtechi.com/split-command-examples-for-linux-unix/).
