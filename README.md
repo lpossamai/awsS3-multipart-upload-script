@@ -31,6 +31,7 @@ An example of the output of the script:
 The script will send the output to another file and format it to be compatible with the AWS requirements for the `complete-multipart-upload` command.
 
 AWS `complete-multipart-upload` output example:
+
 <code>{
   "Parts": [
     {
@@ -56,7 +57,7 @@ More information about the `split` command for Linux [here](https://www.linuxtec
 
 `profile` = Your AWS profile (i.e. `aws configure --profile tests3`).
 
-`upload_id` = Your upload_id, retrievable when executing `create-multipart-upload`.
+`upload_id` = Your `upload_id`, retrievable when executing `create-multipart-upload`.
 
 `/home/lucas/aws-upload-test/files/x` = The directory in your HD that contains the splitted files.
 
