@@ -11,11 +11,11 @@ That way, if you lose connection for a reason, you'll be able to resume the uplo
 	1. Example: `aws s3api create-multipart-upload --bucket my-bucket --key 'multipart-1'`
 	2. Please, take notes of the `upload_id` and `key` values; you'll need them.
 2. Clone this repo
-3. Set permissions: `chmod +x multipart.file-upload-s3.sh`
-4. Edit `multipart.file-upload-s3.sh` with your requirements - See **variables** below for more information.
+3. Set permissions: `chmod +x multipart-file-upload-s3.sh`
+4. Edit `multipart-file-upload-s3.sh` with your requirements - See **variables** below for more information.
 	1. Change `bucket`, `profile`, `upload_id` and `key`.
 5. Create the `logs` directory: `cd awsS3-multipart-upload-script && mkdir logs`
-6. Run: `./multipart.file-upload-s3.sh`
+6. Run: `./multipart-file-upload-s3.sh`
 7. Check [AWS documentation](https://docs.aws.amazon.com/cli/latest/reference/s3api/complete-multipart-upload.html) for next step. You'll have to run the `complete-multipart-upload` command.
 
 The script will start reading your `/home/lucas/aws-upload-test/files/x` directory for files, will take the MD5 checksum of them and parse it to the S3 API as the `--content-md5` parameter, and then it will start uploading each file to the specified `bucket`.
@@ -59,6 +59,6 @@ More information about the `split` command for Linux [here](https://www.linuxtec
 
 `upload_id` = Your `upload_id`, retrievable when executing `create-multipart-upload`.
 
-`/home/lucas/aws-upload-test/files/x` = The directory in your HD that contains the splitted files.
+`/home/lucas/aws-upload-test/files/x/` = The directory in your HD that contains the splitted files.
 
 `key` = Object key for which the multipart upload has been initiated.
